@@ -50,6 +50,7 @@ Guardian Lite aims to make that boundary explicit and testable. It does not make
 - [Roadmap](ROADMAP.md)
 - [Demo outline](DEMO.md)
 - [Security policy](SECURITY.md)
+- [Design partner collaboration](DESIGN_PARTNERS.md)
 
 ## Guiding principle
 
