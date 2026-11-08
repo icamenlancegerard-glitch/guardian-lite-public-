@@ -14,7 +14,11 @@ This folder contains a framework-free, static website for the public Guardian Li
 
 Open \`index.html\` in a browser, or serve this folder with any static file server. There is no build step and no package installation.
 
-## Cloudflare Pages settings (not deployed)
+## Cloudflare Pages preview
+
+The `website/v1` branch is configured for a Cloudflare Pages preview only. The `main` production branch is disabled for deployment; no custom domain or DNS is configured.
+
+## Cloudflare Pages settings
 
 When deployment is explicitly approved:
 
