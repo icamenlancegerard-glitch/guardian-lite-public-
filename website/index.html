@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d18">
+  <meta name="description" content="Guardian Lite explores authorization and enforcement for consequential actions initiated by AI agents. Review the architecture, bounded M0 evidence, and design-partner collaboration scope.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Guardian Lite — Know before AI acts">
+  <meta property="og:description" content="Authorization and enforcement for consequential actions initiated by AI agents.">
+  <title>Guardian Lite — Know before AI acts</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Guardian Lite home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none">
+            <path d="M20 3.5 33 8.5v10.2c0 8.1-5.3 14.4-13 18-7.7-3.6-13-9.9-13-18V8.5L20 3.5Z" stroke="currentColor" stroke-width="1.8"/>
+            <path d="m13.7 20.2 4.1 4.1 8.7-9" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand-wordmark">GUARDIAN <span>LITE</span></span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="#approach">Approach</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#partners">Design partners</a>
+        <a class="nav-cta" href="https://github.com/icamenlancegerard-glitch/guardian-lite-public-/issues/new?title=Design%20partner%20interest" target="_blank" rel="noopener noreferrer">Start a conversation <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero section-shell" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> EARLY-STAGE PROJECT <span class="eyebrow-divider">/</span> M0 FROZEN</p>
+          <h1>Know before<br><span>AI acts.</span></h1>
+          <p class="hero-lede">Authorization and enforcement for consequential actions initiated by AI agents.</p>
+          <p class="hero-support">An agent request is not permission. A decision matters only when the protected action cannot take an unguarded path.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#evidence">Explore the evidence <span aria-hidden="true">↓</span></a>
+            <a class="button button-quiet" href="#architecture">Understand the boundary <span aria-hidden="true">↘</span></a>
+          </div>
+          <p class="hero-note"><span class="note-line"></span> Built around a simple question: where is permission checked—and what enforces it?</p>
+        </div>
+
+        <div class="hero-visual" aria-label="Conceptual diagram showing an AI agent request passing through an authorization boundary before reaching a protected service">
+          <div class="visual-topline"><span>CONCEPTUAL REQUEST PATH</span><span class="visual-indicator"><i></i> DESIGN MODEL</span></div>
+          <div class="path-node agent-node">
+            <span class="node-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="16" height="12" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M9 12h.01M15 12h.01M9 16h6M12 4v3M9 3h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+            <span><strong>AI agent</strong><small>Proposes an action</small></span>
+            <span class="node-tag">UNTRUSTED INPUT</span>
+          </div>
+          <div class="path-connector"><span></span><small>REQUEST</small></div>
+          <div class="guard-boundary">
+            <div class="guard-heading"><span class="guard-symbol" aria-hidden="true">⌁</span><span><strong>Guardian Lite</strong><small>Authorization boundary</small></span><span class="boundary-label">CHECK</span></div>
+            <div class="decision-row">
+              <div class="decision deny"><b>DENY</b><span>Stop the action</span></div>
+              <div class="decision allow"><b>ALLOW</b><span>Guarded path only</span></div>
+            </div>
+          </div>
+          <div class="path-connector guarded"><span></span><small>GUARDED EXECUTION</small></div>
+          <div class="path-node service-node">
+            <span class="node-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="6" rx="1.8" stroke="currentColor" stroke-width="1.6"/><rect x="4" y="14" width="16" height="6" rx="1.8" stroke="currentColor" stroke-width="1.6"/><path d="M8 7h.01M8 17h.01M12 7h4M12 17h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+            <span><strong>Protected service</strong><small>Performs the operation</small></span>
+            <span class="node-tag">SERVICE BOUNDARY</span>
+          </div>
+          <div class="visual-foot"><span class="visual-foot-mark">↳</span> Decision records support later review. They do not, by themselves, prove complete or tamper-proof logging.</div>
+        </div>
+      </div>
+      <div class="container hero-bottom">
+        <span>SECURITY BEGINS WITH HONEST BOUNDARIES.</span>
+        <span class="scroll-cue">SCROLL TO EXPLORE <i aria-hidden="true">↓</i></span>
+      </div>
+    </section>
+
+    <section class="status-strip" aria-label="Current project status">
+      <div class="container status-grid">
+        <div><span class="status-label">PROJECT STAGE</span><strong>Early-stage</strong></div>
+        <div><span class="status-label">M0</span><strong><span class="mini-dot"></span> Frozen</strong></div>
+        <div><span class="status-label">M1-A</span><strong>Evidence-only</strong></div>
+        <div><span class="status-label">PRODUCTION</span><strong>Not established</strong></div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="approach">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow dark-eyebrow">01 / THE PROBLEM</p>
+          <h2>A decision is not<br><span>an enforcement boundary.</span></h2>
+          <p>AI agents can initiate consequential operations through tools, APIs, and workflows. The hard question is not only whether a request receives approval. It is whether every route to the protected service is actually controlled.</p>
+        </div>
+        <div class="principle-grid">
+          <article class="principle-card">
+            <span class="card-index">01</span>
+            <div class="principle-icon" aria-hidden="true">≠</div>
+            <h3>Intent is not permission</h3>
+            <p>A model-generated request does not establish user intent, authority, or safety.</p>
+          </article>
+          <article class="principle-card">
+            <span class="card-index">02</span>
+            <div class="principle-icon" aria-hidden="true">⌁</div>
+            <h3>Approval is not execution control</h3>
+            <p>A decision point that can be skipped is advisory. The protected action must remain behind the guarded path.</p>
+          </article>
+          <article class="principle-card">
+            <span class="card-index">03</span>
+            <div class="principle-icon" aria-hidden="true">≋</div>
+            <h3>A record is not a guarantee</h3>
+            <p>An audit record helps with review, but does not automatically prove completeness, integrity, or tamper resistance.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="architecture">
+      <div class="container architecture-layout">
+        <div class="architecture-copy">
+          <p class="eyebrow">02 / THE APPROACH</p>
+          <h2>Put the check<br><span>where actions happen.</span></h2>
+          <p>Guardian Lite explores a control point between an AI agent and a protected service. The agent is treated as an untrusted request initiator; the protected service remains responsible for its own authentication and authorization.</p>
+          <a class="text-link" href="https://github.com/icamenlancegerard-glitch/guardian-lite-public-/blob/main/ARCHITECTURE.md" target="_blank" rel="noopener noreferrer">Read the architecture note <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="architecture-diagram">
+          <div class="diagram-row">
+            <span class="diagram-number">01</span>
+            <span class="diagram-icon">AI</span>
+            <span class="diagram-text"><strong>Agent request</strong><small>Untrusted input proposes an action</small></span>
+            <span class="diagram-side">REQUEST</span>
+          </div>
+          <div class="diagram-flow"><span></span></div>
+          <div class="diagram-row diagram-guard">
+            <span class="diagram-number">02</span>
+            <span class="diagram-icon shield-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2.8 20 6v6.2c0 5-3.2 8.7-8 11-4.8-2.3-8-6-8-11V6l8-3.2Z" stroke="currentColor" stroke-width="1.6"/><path d="m8.5 12 2.2 2.2 4.8-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="diagram-text"><strong>Authorization boundary</strong><small>Evaluate policy and produce a decision</small></span>
+            <span class="diagram-side cyan-side">ALLOW / DENY</span>
+          </div>
+          <div class="diagram-flow"><span></span></div>
+          <div class="diagram-row">
+            <span class="diagram-number">03</span>
+            <span class="diagram-icon service-icon">API</span>
+            <span class="diagram-text"><strong>Protected service</strong><small>Only the guarded route should reach it</small></span>
+            <span class="diagram-side">EXECUTION</span>
+          </div>
+          <div class="audit-note"><span class="audit-dot"></span><span><strong>Decision record</strong><small>Retained for later review; completeness and tamper resistance are not established claims.</small></span></div>
+          <p class="diagram-caption">Conceptual architecture. Actual protection depends on the integration and coverage of every relevant execution path.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-evidence" id="evidence">
+      <div class="container">
+        <div class="evidence-heading">
+          <div>
+            <p class="eyebrow dark-eyebrow">03 / WHAT HAS BEEN TESTED</p>
+            <h2>Evidence, with<br><span>its limits attached.</span></h2>
+          </div>
+          <div class="evidence-stamp"><span class="stamp-dot"></span><span><strong>M0</strong><small>CONTROLLED RUNTIME CHECKS</small></span></div>
+        </div>
+        <p class="evidence-intro">M0 was exercised in a controlled local runtime configuration and is now frozen. These are specific recorded outcomes—not a claim of universal bypass resistance, independent review, or production readiness.</p>
+        <div class="evidence-table-wrap">
+          <table class="evidence-table">
+            <thead>
+              <tr><th scope="col">CHECK</th><th scope="col">RECORDED RESULT</th><th scope="col">WHAT IT SUPPORTS</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><span class="test-code">A</span> Unauthorized request</th>
+                <td><span class="result-pill result-deny">DENY</span></td>
+                <td>The configured path denied the tested unauthorized request.</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="test-code">B</span> Direct-access attempt</th>
+                <td><span class="result-pill result-blocked">BLOCKED</span></td>
+                <td>The tested direct path did not reach the protected service.</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="test-code">C</span> Invalid service credential</th>
+                <td><span class="result-pill result-rejected">HTTP 401</span></td>
+                <td>The protected test service rejected the tested invalid credential.</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="test-code">D</span> Approved request</th>
+                <td><span class="result-pill result-accepted">ACCEPTED</span></td>
+                <td>The configured approved path completed the tested request.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="evidence-footnotes">
+          <div class="footnote-card">
+            <span class="footnote-symbol">i</span>
+            <p><strong>Environment boundary</strong>The M0 setup constrained agent access: the agent did not receive the protected service credential, the protected service was not directly exposed to the host, and network access was restricted in the test environment.</p>
+          </div>
+          <div class="footnote-card">
+            <span class="footnote-symbol">!</span>
+            <p><strong>What remains unproven</strong>Every alternate path, all credential-handling risks, production reliability, tamper-proof audit records, and independent security assurance remain unestablished.</p>
+          </div>
+        </div>
+        <div class="evidence-links">
+          <a class="button button-dark" href="https://github.com/icamenlancegerard-glitch/guardian-lite-public-/blob/main/EVIDENCE.md" target="_blank" rel="noopener noreferrer">Read full evidence status <span aria-hidden="true">↗</span></a>
+          <a class="text-link text-link-dark" href="https://github.com/icamenlancegerard-glitch/guardian-lite-public-/blob/main/THREAT_MODEL.md" target="_blank" rel="noopener noreferrer">Review the threat model <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="last-updated">Public evidence summary last updated: 08 November 2026.</p>
+      </div>
+    </section>
+
+    <section class="section section-light partners-section" id="partners">
+      <div class="container partners-grid">
+        <div>
+          <p class="eyebrow dark-eyebrow">04 / DESIGN PARTNERS</p>
+          <h2>Help challenge<br><span>the boundary.</span></h2>
+          <p class="partners-lede">We are looking for a small number of AI-agent builders and technical teams willing to examine one practical integration and question its assumptions.</p>
+          <a class="button button-primary" href="https://github.com/icamenlancegerard-glitch/guardian-lite-public-/issues/new?title=Design%20partner%20interest" target="_blank" rel="noopener noreferrer">Express design-partner interest <span aria-hidden="true">↗</span></a>
+          <p class="partners-small">Please share only non-sensitive information in a public issue. Never include credentials, customer data, private logs, or exploit details.</p>
+        </div>
+        <div class="partner-steps">
+          <div class="partner-step"><span>01</span><p><strong>Choose one real use case</strong><small>Describe the agent action and protected service.</small></p></div>
+          <div class="partner-step"><span>02</span><p><strong>Map the execution path</strong><small>Identify credentials, callers, endpoints, tools, and alternate routes.</small></p></div>
+          <div class="partner-step"><span>03</span><p><strong>Agree on a safe test</strong><small>Use a non-production environment and synthetic data.</small></p></div>
+          <div class="partner-step"><span>04</span><p><strong>Review what the test proves</strong><small>Document observed behavior, gaps, and unknowns.</small></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-faq">
+      <div class="container faq-layout">
+        <div><p class="eyebrow">05 / BOUNDARIES</p><h2>Clear claims.<br><span>Clear limits.</span></h2></div>
+        <div class="faq-list">
+          <details>
+            <summary>Is Guardian Lite production-ready?</summary>
+            <p>No. It is an early-stage project. A production deployment, independent security assessment, and certification have not been established.</p>
+          </details>
+          <details>
+            <summary>Does it guarantee that an AI agent cannot bypass controls?</summary>
+            <p>No. The M0 direct-access result applies to one configured test path. Every relevant execution path must be identified and tested in each integration.</p>
+          </details>
+          <details>
+            <summary>Is this a live interactive demo?</summary>
+            <p>No. This website is a static overview of the project and its documented evidence. The public repository contains documentation only; the implementation and detailed internal test materials are maintained separately.</p>
+          </details>
+          <details>
+            <summary>What is M1-A?</summary>
+            <p>M1-A is limited to credential-exposure attack-evidence work. Its current scope is evidence-only, and no completed M1-A result is claimed here.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <a class="brand footer-brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none"><path d="M20 3.5 33 8.5v10.2c0 8.1-5.3 14.4-13 18-7.7-3.6-13-9.9-13-18V8.5L20 3.5Z" stroke="currentColor" stroke-width="1.8"/><path d="m13.7 20.2 4.1 4.1 8.7-9" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="brand-wordmark">GUARDIAN <span>LITE</span></span>
+      </a>
+      <p>Know before AI acts.</p>
+      <a class="footer-top-link" href="#top">Back to top ↑</a>
+    </div>
+    <div class="container footer-bottom">
+      <p>Early-stage project. Not production-ready, independently audited, or certified.</p>
+      <div>
+        <a href="https://github.com/icamenlancegerard-glitch/guardian-lite-public-" target="_blank" rel="noopener noreferrer">Public project repository ↗</a>
+        <a href="https://github.com/icamenlancegerard-glitch/guardian-lite-public-/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer">Security policy ↗</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
