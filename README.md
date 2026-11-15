@@ -19,6 +19,17 @@ Guardian Lite explores four connected capabilities:
 
 An `ALLOW` decision is not, by itself, proof that an action is safe. The protected action must remain behind the enforcement boundary, and every relevant execution path must be covered.
 
+## Design principles
+
+The public design is informed by several general security principles:
+
+- **Bind permission to the action:** approval should apply only to the reviewed action, including its target and material parameters. A changed action must be evaluated again.
+- **Separate decision from execution:** an authorization response does not prove that an external operation happened, happened once, or completed successfully.
+- **Enforce at the boundary:** a decision point that can be bypassed is advisory rather than an effective control.
+- **Fail closed as a goal:** if permission cannot be established, the protected action should not proceed. Each integration must test this behavior under its own failure conditions.
+
+These are design requirements and evaluation questions, not claims that every capability is implemented or verified in Guardian Lite.
+
 ## Current status
 
 | Area | Status |
@@ -34,7 +45,7 @@ Guardian Lite is **not presented as production-ready**, independently audited, o
 
 This repository contains project documentation and reviewed, high-level evidence summaries only.
 
-The implementation, internal test fixtures, detailed runtime configuration, credentials, and other sensitive development materials are kept out of this public repository.
+The implementation, internal test fixtures, detailed runtime configuration, credentials, and other sensitive development materials are kept out of this public repository. This documentation may discuss general security concepts without disclosing another project's private implementation or transferring its test results to Guardian Lite.
 
 ## Important boundary
 

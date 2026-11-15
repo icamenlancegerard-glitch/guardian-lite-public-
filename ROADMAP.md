@@ -24,9 +24,17 @@ Constraints:
 
 ## Later work — not yet committed
 
-Possible future work may include additional integration-specific attack tests, independent technical review, and a carefully bounded design-partner evaluation.
+Possible future evaluation areas include:
 
-These are possible next steps, not commitments, completed milestones, or guarantees. Any pilot would require a defined test environment, explicit action scope, safe test data, and agreement on what the evidence can and cannot demonstrate.
+- **Action-intent binding:** test whether approval remains tied to the exact target, material parameters, and executor.
+- **Replay and duplicate-action handling:** test repeated requests, retries, and concurrent submissions at the protected-service boundary.
+- **Interrupted execution and recovery:** define what happens when the outcome of an external operation is delayed or unknown; do not assume that a timeout means the operation did not happen.
+- **Human approval:** evaluate explicit approval, rejection, expiry, and revocation for selected high-impact actions.
+- **Integration-specific attack tests:** examine credentials, alternate execution paths, and least-privilege boundaries.
+- **Independent technical review:** seek a clearly scoped review that states its method and limitations.
+- **Design-partner evaluation:** run a bounded, non-production assessment with synthetic data.
+
+These are research and planning topics, not implemented features, approved milestones, completed tests, or guarantees. Any pilot would require a defined test environment, explicit action scope, safe test data, and agreement on what the evidence can and cannot demonstrate.
 
 ## Release discipline
 

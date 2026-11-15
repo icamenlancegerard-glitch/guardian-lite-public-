@@ -31,6 +31,9 @@ A first conversation can be limited to one real use case and its execution path:
 3. Identify direct routes, alternate tools, retries, and other possible bypass paths.
 4. Agree on a narrow, non-production test with synthetic data.
 5. Review what the test actually demonstrates and what remains unknown.
+6. Where relevant, discuss whether approval is bound to the exact target, parameters, and executor.
+7. Identify how retries, duplicate requests, interrupted operations, and uncertain provider outcomes are handled.
+8. Decide whether a human approval step is needed for the selected high-impact action.
 
 No production access is requested. Do not share credentials, customer data, private logs, or sensitive architecture details in a public issue.
 
@@ -41,7 +44,7 @@ No production access is requested. Do not share credentials, customer data, priv
 - Transparent documentation of what has and has not been demonstrated.
 - A possible future controlled evaluation, only if the scope and safety conditions are agreed.
 
-This is an exploratory collaboration. There is no promise of a finished integration, production deployment, payment, certification, or specific security outcome.
+This is an exploratory collaboration. There is no promise of a finished integration, production deployment, payment, certification, or specific security outcome. These discussions are evaluation topics; they must not be presented as existing Guardian Lite features unless separately implemented and evidenced.
 
 ## Current project boundaries
 

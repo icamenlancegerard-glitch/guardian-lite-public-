@@ -30,6 +30,14 @@ Audit record
 
 The critical design requirement is that the protected action must not be executable through an alternate path that skips the authorization boundary.
 
+## Action binding and execution separation
+
+Authorization should apply to the specific action that was reviewed—not to an open-ended permission to perform a similar action later. A robust integration should define the action's relevant target, parameters, and executing component, then reject material substitutions or require a fresh authorization decision.
+
+The authorization decision, the handoff to an executor, and the protected service's resulting state change are separate events. A successful authorization response must not be represented as proof that an external side effect completed, completed exactly once, or produced the expected result.
+
+These are architectural requirements for evaluation. This public document does not claim that Guardian Lite currently implements durable action binding, replay protection, provider reconciliation, or exactly-once execution.
+
 ## Trust boundaries
 
 ### 1. AI agent
@@ -47,6 +55,10 @@ The protected service is the resource that performs the consequential operation.
 ### 4. Audit record
 
 The system records authorization decisions for later review. An audit record is useful evidence, but it is not automatically tamper-proof, complete, or independently verified.
+
+### 5. External executor and protected operation
+
+An integration may involve a separate executor or provider between the authorization boundary and the protected service. The design must identify which component accepts the handoff, which component holds the relevant credential, and which system is authoritative about whether the operation occurred. These responsibilities must not be collapsed into a single `ALLOW` result.
 
 ## Enforcement principle
 
