@@ -1,6 +1,6 @@
 # Evidence Status
 
-Last updated: 2026-11-08
+Last updated: 2026-11-16
 
 This page separates results recorded in a controlled test environment from claims that have not been established. It is a high-level summary; private implementation details and raw internal artifacts are intentionally not published here.
 
@@ -24,6 +24,10 @@ These are results from a specific controlled setup, not an independent audit or 
 M1-A is limited to collecting attack evidence related to credential exposure. The current scope is evidence-only; it does not authorize implementation changes or fixes.
 
 No M1-A result is claimed as complete in this public summary.
+
+## Project and evidence separation
+
+Guardian Lite is a separate project with its own implementation, scope, and evidence record. Architectural concepts discussed in this documentation are not proof that Guardian Lite implements them. Tests, CI results, review notes, or assurance claims from another repository or project are not Guardian Lite evidence and must not be counted toward its milestones.
 
 ## Evidence limitations
 
