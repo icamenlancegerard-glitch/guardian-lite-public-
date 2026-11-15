@@ -27,6 +27,16 @@ A future demonstration should use:
 
 Never use real payment, payout, customer, or production data in an unapproved demonstration.
 
-## Limitations
+## What this demo does not establish
 
 A successful demo proves only what was exercised in that environment. It does not prove that all integration paths are guarded, that logs are tamper-proof, or that the system is production-ready.
+
+The M0 sequence does not establish:
+
+- Binding of approval to every material action parameter or executor identity.
+- Resistance to every replay, duplicate-request, race, or crash-recovery scenario.
+- Safe handling of an external provider's ambiguous or delayed outcome.
+- Human approval, approval revocation, or separation of duties.
+- Protection against a compromised host, runtime, authorization component, or protected service.
+
+These are useful future evaluation areas, not capabilities demonstrated by the M0 sequence. Do not infer that a related capability exists merely because it appears in an architectural discussion or roadmap.
