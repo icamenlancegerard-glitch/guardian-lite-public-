@@ -30,6 +30,12 @@ This is an early-stage, bounded threat model. It is not a claim that the listed 
 | Direct path around the guard | An agent may try to reach the service without using the authorization boundary | A configured M0 direct-access attempt was blocked; this is not proof against every alternate path |
 | Invalid service credential | An invalid credential should not be accepted by the protected service | A controlled M0 rejection was recorded |
 | Credential exposure | A credential available to an agent could enable bypass or misuse | M1-A evidence work is limited to this area; no general mitigation claim is made |
+| Action or target substitution | An approved request could be altered before execution, changing its target or material parameters | Not established by the current public M0 evidence |
+| Executor substitution | A request could be handed to a different executor or tool than the one evaluated | Not established by the current public M0 evidence |
+| Replay or duplicate action | A previously accepted request could be repeated or retried, causing an unintended second operation | Not established by the current public M0 evidence |
+| Concurrent requests or race conditions | State may change between authorization and execution | Not established by the current public M0 evidence |
+| Interrupted or ambiguous external outcome | A timeout or crash may leave it unknown whether the protected operation occurred | Not established by the current public M0 evidence |
+| Human-approval bypass | A high-impact action could proceed without the required human decision, or after approval is no longer valid | No human-approval control is claimed for current M0 |
 
 ## Important residual risks
 
@@ -41,6 +47,8 @@ The following are not established as solved by the current public evidence:
 - Incomplete, altered, or unavailable audit records.
 - Integration mistakes that expose a service outside the guarded path.
 - Race conditions, replay, duplicate actions, or crash-recovery behavior beyond the specific tests documented elsewhere.
+- Material changes to an action after authorization, including changes to target, parameters, or executor identity.
+- A stale, revoked, or mis-scoped human approval if a future integration introduces human approval.
 
 ## Out of scope for current claims
 
