@@ -4,7 +4,7 @@
 
 Guardian Lite is an early-stage project. It is not represented as production-ready, independently audited, or certified.
 
-This public repository contains documentation and high-level evidence summaries only. The implementation and detailed internal test materials are maintained separately.
+This public repository contains documentation and high-level evidence summaries only. The implementation and detailed internal test materials are maintained separately. Public documentation intentionally avoids private source code, cryptographic construction details, key material, internal trust configuration, raw exploit fixtures, and operational secrets. Do not treat architectural descriptions or roadmap items as evidence of an implemented control.
 
 ## Reporting a security concern
 
