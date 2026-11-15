@@ -52,6 +52,16 @@ Guardian Lite aims to make that boundary explicit and testable. It does not make
 - [Security policy](SECURITY.md)
 - [Design partner collaboration](DESIGN_PARTNERS.md)
 
+## Separate project: The Guardian independent testing
+
+This public repository also hosts preparation documents for a proposed independent adversarial testing program for **The Guardian**, a separate project. The Guardian's private implementation is not included here.
+
+**The program is not yet open for technical testing:** no public runnable test package is available. Do not test live systems or infer authorization from these documents alone.
+
+- [The Guardian testing program and status](independent-testing/THE-GUARDIAN-PROGRAM.md)
+- [Safe tester rules](independent-testing/TESTER-RULES.md)
+- [Finding report template](independent-testing/REPORT_TEMPLATE.md)
+
 ## Guiding principle
 
 **Security begins with honest boundaries.**
