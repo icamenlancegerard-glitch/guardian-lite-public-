@@ -56,9 +56,11 @@ Guardian Lite aims to make that boundary explicit and testable. It does not make
 
 This public repository also hosts preparation documents for a proposed independent adversarial testing program for **The Guardian**, a separate project. The Guardian's private implementation is not included here.
 
-**The program is not yet open for technical testing:** no public runnable test package is available. Do not test live systems or infer authorization from these documents alone.
+**The program is not yet open for technical testing.** A private hosted synthetic-executor implementation is under development/review, but no public, versioned, independently reproducible test release or verified deployment is available. Do not test live systems or infer authorization from these documents alone.
 
-- [The Guardian testing program and status](independent-testing/THE-GUARDIAN-PROGRAM.md)
+- [Independent reviewer package](independent-testing/README.md)
+- [Implementation status and known gaps](independent-testing/IMPLEMENTATION_STATUS.md)
+- [The Guardian testing program](independent-testing/THE-GUARDIAN-PROGRAM.md)
 - [Safe tester rules](independent-testing/TESTER-RULES.md)
 - [Finding report template](independent-testing/REPORT_TEMPLATE.md)
 
