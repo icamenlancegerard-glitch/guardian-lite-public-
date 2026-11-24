@@ -2,7 +2,7 @@
 
 ## Program status
 
-**Status: Preparation only — no public runnable test package is available yet.**
+**Status: Preparation only — no public runnable test release is available.** A private synthetic-executor implementation branch exists, but its integration, database-backed adversarial tests, CI evidence, approval/provisioning workflow, and deployment have not been verified. See [Implementation Status](IMPLEMENTATION_STATUS.md) for the dated evidence snapshot and release blockers.
 
 This page describes the proposed independent testing program for **The Guardian**, a separate project from Guardian Lite.
 
