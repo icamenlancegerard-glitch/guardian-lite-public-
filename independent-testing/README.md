@@ -2,12 +2,12 @@
 
 **Status: Preparation / documentation handoff. This is not an announcement that a runnable test release exists.**
 
-This directory is the reviewer-facing entry point for independent security engineers evaluating the Guardian project. The public repository is a documentation and coordination portal. It is not the Guardian enforcement implementation.
+This directory is the reviewer-facing entry point for independent security engineers evaluating the Guardian project. The public repository is a documentation and coordination portal. It is not The Guardian enforcement implementation. The root-level [ARCHITECTURE.md](../ARCHITECTURE.md) and [THREAT_MODEL.md](../THREAT_MODEL.md) describe the separate Guardian Lite project; they are not The Guardian's architecture or threat model and must not be used as evidence about The Guardian.
 
 ## What reviewers should do first
 
-1. Read [scope and boundaries](SCOPE.md).
-2. Read the project's [threat model](../THREAT_MODEL.md) and [architecture](../ARCHITECTURE.md).
+1. Read [The Guardian program overview](THE-GUARDIAN-PROGRAM.md) and [implementation status](IMPLEMENTATION_STATUS.md).
+2. Read [scope and boundaries](SCOPE.md).
 3. Read [reviewer rules](RULES_OF_ENGAGEMENT.md).
 4. Use the [review plan](TEST_PLAN.md) to structure analysis.
 5. Record findings with [the report template](FINDING_TEMPLATE.md).
