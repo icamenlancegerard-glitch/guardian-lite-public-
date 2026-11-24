@@ -60,7 +60,7 @@ This public repository also hosts preparation documents for a proposed independe
 
 - [Independent reviewer package](independent-testing/README.md)
 - [Implementation status and known gaps](independent-testing/IMPLEMENTATION_STATUS.md)
-- [The Guardian testing program](independent-testing/THE-GUARDIAN-PROGRAM.md)
+- [The Guardian independent reviewer brief](independent-testing/REVIEWER_BRIEF.md)
 - [Reviewer rules of engagement](independent-testing/RULES_OF_ENGAGEMENT.md)
 - [Security finding template](independent-testing/FINDING_TEMPLATE.md)
 
