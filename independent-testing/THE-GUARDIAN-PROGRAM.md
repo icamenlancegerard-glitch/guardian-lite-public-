@@ -4,11 +4,13 @@
 
 **Status: Preparation only — no public runnable test release is available.** A private synthetic-executor implementation branch exists, but its integration, database-backed adversarial tests, CI evidence, approval/provisioning workflow, and deployment have not been verified. See [Implementation Status](IMPLEMENTATION_STATUS.md) for the dated evidence snapshot and release blockers.
 
-This page describes the proposed independent testing program for **The Guardian**, a separate project from Guardian Lite.
+This page describes the proposed independent testing program for **The Guardian**, a separate project from Guardian Lite. The root-level architecture, threat model, and evidence documents in this repository describe Guardian Lite only; they are not documentation or evidence for The Guardian.
 
 The public repository hosting this document is the Guardian Lite public documentation repository. It is being used as a public information and coordination point only. It does not contain The Guardian's private implementation.
 
 Do not interpret this page as an invitation to attack a live service or as confirmation that a test build is ready. Testing may begin only after the maintainer publishes a specific, reviewed test package and its exact scope.
+
+For the current implementation snapshot and known release blockers, see [Implementation Status](IMPLEMENTATION_STATUS.md). The detailed Guardian implementation and its internal threat model remain in a separate private repository and are not represented by Guardian Lite's public documents.
 
 ## Objective
 
