@@ -1,6 +1,6 @@
 # The Guardian — Implementation Status for Independent Review
 
-**Snapshot date:** 2026-11-25  
+**Snapshot date:** 2026-11-25 (updated after reviewing PR #162 and PR #164 CI evidence)  
 **Program status:** Preparation only. Do not begin external technical testing yet.
 
 This page records what can be established from the project repository and current implementation review. It is intentionally conservative: code existing on a branch is not the same as merged, tested, deployed, or independently verified behavior.
@@ -15,7 +15,7 @@ However, the implementation is still a review candidate. The available evidence 
 
 ## Evidence observed
 
-The private hosted-executor working branch is named `feat/hosted-synthetic-executor`. A comparison against `main` showed 29 commits ahead and no commits behind at the time of this snapshot.
+The private hosted-executor PR is [#162](https://github.com/icamenlancegerard-glitch/the-guardian/pull/162), branch `feat/hosted-synthetic-executor`, based on `main`, at head `3e07c2fa11dadfe1079a1b5cf732a916d59ae918`. The PostgreSQL lab is [PR #164](https://github.com/icamenlancegerard-glitch/the-guardian/pull/164), stacked on the executor branch, at head `40f6b092cc4bbf176b7074a76604fd55e31ca0e8`. Both PRs remain open; #162 is draft and #164 is not merged.
 
 The branch contains these implementation artifacts:
 
@@ -26,7 +26,7 @@ The branch contains these implementation artifacts:
 | `hosted_executor/entrypoint.py` | Removes migration-owner database URL before launching runtime process | Independent deployment verification |
 | `migrations/hosted_executor/` | Trust, issuer authorization, executor credential, human approval, synthetic account, permit claim, and audit tables; synthetic seed accounts | Verified backup/restore, revocation, migration rollback, and production operations |
 | `render.yaml` | Private service and managed PostgreSQL blueprint definitions | Created Render resources, approved spend, staging deployment, or remote HTTPS test results |
-| `tests/test_hosted_executor_contract.py` | Nine focused parser/contract-level test methods | PostgreSQL integration, concurrent claim, approval race, rollback, revocation race, or real protected-service tests |
+| `tests/test_hosted_executor_contract.py` | Focused parser/contract tests in the executor PR | Successful execution against the hosted runtime or deployed service |
 
 The executor's intended first effect is a transfer between synthetic PHP-denominated test accounts. The code shown in this branch does not call a payment provider and must not be described as moving real money.
 
@@ -37,7 +37,7 @@ These are review questions and readiness gaps, not all confirmed vulnerabilities
 1. **Control-plane completeness:** The hosted-execution rollout document says the public control plane is not yet implemented. The executor endpoint is not a complete agent-to-approval-to-permit workflow.
 2. **Human approval provenance:** The database schema contains approval records and the executor requires a matching, unexpired `APPROVED` record. The complete authenticated human-identity, approval-creation, rejection, revocation, and provisioning path is not demonstrated by this branch.
 3. **Trust provisioning:** Signing keys, issuer authorizations, and executor credential versions are stored in PostgreSQL. A complete, authenticated, least-privilege workflow to provision and rotate these records is not yet demonstrated.
-4. **Database enforcement tests:** The nine current focused tests are not end-to-end PostgreSQL tests. The critical transaction, lock, permission, replay, race, rollback, and failure semantics need disposable-PostgreSQL integration tests.
+4. **Database enforcement tests:** **PR #164 now adds a disposable PostgreSQL integration lab** with a Docker Compose topology and tests for a valid synthetic transfer, altered parameters, expired permit, revoked signing key, replay, concurrent duplicate requests, HTTP authentication, malformed JSON, and runtime-role privilege checks. These tests are present in source but have not been demonstrated passing. The lab uses a pre-provisioned approval fixture; it does not prove the authenticated human-approval lifecycle.
 5. **Permit verification coverage:** Add direct tests for invalid signature, unknown/revoked key, issuer-scope mismatch, expired and not-yet-valid permits, wrong audience, wrong executor version/fingerprint, altered transfer parameters, wrong tenant, and wrong approval binding.
 6. **Concurrency and side effects:** Prove that two simultaneous requests using the same permit or approval cannot produce two ledger effects. Verify source/destination balances and audit rows before and after each test.
 7. **Failure behavior:** Test database outage, lock timeout, process termination at transaction boundaries, lost response after commit, and retry behavior. Confirm no ambiguous result is silently reported as a safe retry.
@@ -45,7 +45,12 @@ These are review questions and readiness gaps, not all confirmed vulnerabilities
 
 ## CI and deployment evidence
 
-The hosted-executor branch adds compile/lint steps and includes its focused test file in the repository test workflow. The project status available for this snapshot says CI capacity was unavailable for the hosted-executor PR; no successful run for the exact hosted-executor head is established here.
+CI evidence was checked against the current PR heads on 2026-11-25:
+
+- **PR #162**, head `3e07c2fa11dadfe1079a1b5cf732a916d59ae918`: the `Guardian Tests` workflow run [#45451699448](https://github.com/icamenlancegerard-glitch/the-guardian/actions/runs/45451699448) completed with conclusion **failure**.
+- **PR #164**, head `40f6b092cc4bbf176b7074a76604fd55e31ca0e8`: the `Hosted Executor PostgreSQL Lab` workflow run [#45459820807](https://github.com/icamenlancegerard-glitch/the-guardian/actions/runs/45459820807) and `Guardian Tests` run [#45459820985](https://github.com/icamenlancegerard-glitch/the-guardian/actions/runs/45459820985) both completed with conclusion **failure**.
+
+The available job-log retrieval did not return the logs, so the root cause of these failures is **unknown**. Do not assume they are quota failures or code failures without the logs. No successful exact-head CI result is established. Re-run and inspect these workflows after the failure cause is identified.
 
 The Render blueprint specifies a private service and managed PostgreSQL resource. The project rollout gate says no Guardian-specific Render service or database had been created and that cost approval is required before paid resources are provisioned.
 
@@ -63,7 +68,7 @@ A separate operator-console scaffold exists as a review candidate. Its own descr
 
 ## Minimum release gate before external hands-on testing
 
-- [ ] Hosted executor changes reviewed and merged only after required checks pass.
+- [ ] Identify and fix the causes of the failed CI runs linked above; obtain successful checks for the exact PR heads or their reviewed successors.
 - [ ] Public control plane and authenticated human approval lifecycle implemented, or explicitly excluded from the test scope.
 - [ ] Disposable PostgreSQL integration environment reproducible from a clean checkout.
 - [ ] Valid signed permit path demonstrated end to end.
@@ -79,8 +84,12 @@ A separate operator-console scaffold exists as a review candidate. Its own descr
 
 ## Reviewer guidance
 
-An experienced reviewer can already inspect the public architecture, threat model, test plan, and stated implementation boundaries. A reviewer with separately authorized access to the private code may conduct a source-level review under the agreed scope.
+An experienced reviewer may begin a **documentation and architecture/source-level discussion now**. A source-level review of The Guardian requires separately authorized access to its private repository. The public portal does not grant that access. Hands-on sandbox testing is not open yet.
 
 Do not invite testers to probe live services, scan infrastructure, or assume the private executor is reachable. The next honest milestone is a reproducible, disposable local integration lab—not a public production endpoint.
+
+## Reviewer invitation boundary
+
+The project may invite experienced security engineers, including reviewers based in Silicon Valley, to inspect this public handoff and discuss the architecture and known gaps. The invitation must explicitly say that this is an **initial review discussion**, not an open bug bounty or permission to probe live infrastructure. No reviewer contact email or compensation offer is published because neither has been confirmed for this program.
 
 **Evidence standard:** PLANNED is not IMPLEMENTED; IMPLEMENTED is not TESTED; TESTED is not DEPLOYED; DEPLOYED is not VERIFIED.
