@@ -47,8 +47,8 @@ These are review questions and readiness gaps, not all confirmed vulnerabilities
 
 CI evidence was checked against the current PR heads on 2026-11-25:
 
-- **PR #162**, head `3e07c2fa11dadfe1079a1b5cf732a916d59ae918`: the `Guardian Tests` workflow run [#45451699448](https://github.com/icamenlancegerard-glitch/the-guardian/actions/runs/45451699448) completed with conclusion **failure**.
-- **PR #164**, head `40f6b092cc4bbf176b7074a76604fd55e31ca0e8`: the `Hosted Executor PostgreSQL Lab` workflow run [#45459820807](https://github.com/icamenlancegerard-glitch/the-guardian/actions/runs/45459820807) and `Guardian Tests` run [#45459820985](https://github.com/icamenlancegerard-glitch/the-guardian/actions/runs/45459820985) both completed with conclusion **failure**.
+- **PR #162**, head `3e07c2fa11dadfe1079a1b5cf732a916d59ae918`: the `Guardian Tests` workflow run [#45451699448](https://github.com/icamenlancegerard-glitch/the-guardian/actions/runs/45451699448) completed with conclusion **failure**; all six reported jobs concluded failure.
+- **PR #164**, head `40f6b092cc4bbf176b7074a76604fd55e31ca0e8`: the `Hosted Executor PostgreSQL Lab` workflow run [#45459820807](https://github.com/icamenlancegerard-glitch/the-guardian/actions/runs/45459820807) completed with conclusion **failure**; its single job failed. The `Guardian Tests` run [#45459820985](https://github.com/icamenlancegerard-glitch/the-guardian/actions/runs/45459820985) also completed with conclusion **failure**; all six reported jobs failed.
 
 The available job-log retrieval did not return the logs, so the root cause of these failures is **unknown**. Do not assume they are quota failures or code failures without the logs. No successful exact-head CI result is established. Re-run and inspect these workflows after the failure cause is identified.
 
