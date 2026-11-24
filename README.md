@@ -61,8 +61,8 @@ This public repository also hosts preparation documents for a proposed independe
 - [Independent reviewer package](independent-testing/README.md)
 - [Implementation status and known gaps](independent-testing/IMPLEMENTATION_STATUS.md)
 - [The Guardian testing program](independent-testing/THE-GUARDIAN-PROGRAM.md)
-- [Safe tester rules](independent-testing/TESTER-RULES.md)
-- [Finding report template](independent-testing/REPORT_TEMPLATE.md)
+- [Reviewer rules of engagement](independent-testing/RULES_OF_ENGAGEMENT.md)
+- [Security finding template](independent-testing/FINDING_TEMPLATE.md)
 
 ## Guiding principle
 
