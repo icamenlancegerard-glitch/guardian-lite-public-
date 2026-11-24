@@ -6,7 +6,7 @@ This directory is the reviewer-facing entry point for independent security engin
 
 ## What reviewers should do first
 
-1. Read [The Guardian program overview](THE-GUARDIAN-PROGRAM.md) and [implementation status](IMPLEMENTATION_STATUS.md).
+1. Read the [independent reviewer brief](REVIEWER_BRIEF.md) and [implementation status](IMPLEMENTATION_STATUS.md).
 2. Read [scope and boundaries](SCOPE.md).
 3. Read [reviewer rules](RULES_OF_ENGAGEMENT.md).
 4. Use the [review plan](TEST_PLAN.md) to structure analysis.
