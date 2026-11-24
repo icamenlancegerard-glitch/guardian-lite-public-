@@ -1,6 +1,6 @@
-# Independent Security Review
+# The Guardian — Independent Security Review
 
-Guardian welcomes rigorous, evidence-based scrutiny of its authorization-boundary design.
+The Guardian invites rigorous, evidence-based scrutiny of its authorization-boundary design. This program is separate from Guardian Lite, whose documentation portal hosts this page.
 
 **Reviewer starting point:** [Independent Testing Package](independent-testing/README.md)
 
